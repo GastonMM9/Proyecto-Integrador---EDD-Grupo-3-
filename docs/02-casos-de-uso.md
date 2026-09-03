@@ -7,20 +7,20 @@
 
 
 =====GASTRORECOMMENDER====
--¿QUÈ INGREDIENTES TENÈS DISPONIBLES?
+- ¿QUÈ INGREDIENTES TENÈS DISPONIBLES?
  - | Pollo,arroz,tomate,huevo
 
--Buscando recetas....
+- Buscando recetas....
 
--Te recomendamos:
-  -1.POLLO CON ARROZ Y HUEVO
-  -2.POLLO CON ARROZ Y TOMATE
+- Te recomendamos:
+-  1.POLLO CON ARROZ Y HUEVO
+-  2.POLLO CON ARROZ Y TOMATE
 
--¿QUE OBJETIVO NUTRICIONAL TENÈS?
- -| Proteico
+- ¿QUE OBJETIVO NUTRICIONAL TENÈS?
+ - | Proteico
 
--*Recomendacion:pollo con arroz y huevo
--*Tiempo:30 minutos
--*Ingredientes faltantes:ninguno
--*Alto aporte en proteinas
+- *Recomendacion:pollo con arroz y huevo
+- *Tiempo:30 minutos
+- *Ingredientes faltantes:ninguno
+- *Alto aporte en proteinas
  
