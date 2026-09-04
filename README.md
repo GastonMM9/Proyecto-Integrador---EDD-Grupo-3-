@@ -3,7 +3,7 @@
 ### Integrantes
 
 - Gastón Morel
-- Daiana Nuñez
+- Daiana nuñez
 - Mercedes Gonzalez 
 
 ### Descripción
