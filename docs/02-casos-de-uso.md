@@ -1,4 +1,4 @@
--# 02 — Casos de Uso — GastroRecommender
+# 02 — Casos de Uso — GastroRecommender
 
 - **Gestionar Recetas**: alta, baja, editar y ver la lista completa
 - **Controlar Ingredientes**: cantidades y existencias disponibles
@@ -24,3 +24,42 @@
 - *Ingredientes faltantes:ninguno
 - *Alto aporte en proteinas
  
+```text
+========================================
+ GastroRecommender — TERMINAL
+========================================
+1. Stock de ingredientes
+2. Lista de recetas
+3. Recomendaciones
+4. Recordatorio de compra
+5. Vencimientos
+0. Salir
+
+----------------------------------------
+
+Opción: 3
+
+========================================
+ GastroRecommender — Recomendaciones
+========================================
+
+ **** Recetas recomendadas ****
+
+1. POLLO CON ARROZ Y HUEVO
+2. POLLO Al HORNO CON PAPAS
+
+¿Que receta desea ver? : _  <----- (El nro de la receta que desea ver y pasa a la siguiente pantalla)
+
+----------------------------------------
+
+Muestra informacion de la receta
+
+¿Tengo todos los ingredientes?
+
+Objetivo nutricional..
+
+Tiempo de preparacion...
+
+Pasos a seguir...
+
+```
