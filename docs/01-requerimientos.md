@@ -5,9 +5,9 @@ Diseñado para facilitar la elavoracion de recetas de nuestro interes dependiend
 
 ## 1. Dominio elegido y justificación
 
-**Dominio: Gastronomia.**  
+**Dominio elegido: Gastronomía.** alimentación y nutrición casera 
 
-Es un tema que decidimos entre los integrantes del grupo, ya que es un problema en comun que tenemos a la hora de llegar de trabajar cansados y con poco tiempo.
+Es un tema que decidimos entre los integrantes del grupo, ya que es un problema cotidiano muy común a la hora de decidir que cocinar por falta de tiempo por no saber aprovechar los ingredientes que ya tenemos en casa y además cuesta encontrar platos que se ajusten a lo que cada persona necesita comer: para bajar de peso, ganar masa muscular o simplemente llevar una alimentación más sana y equilibrada 
 
 ## 2. Problema que resuelve
 
@@ -21,7 +21,7 @@ Es un tema que decidimos entre los integrantes del grupo, ya que es un problema 
 
 ## 4. Funcionalidades iniciales
 
-- Registrar, modificar y eliminar recetas.
+- agregar, modificar y eliminar recetas.
 - Administrar ingredientes, cantidades y disponibilidad.
 - Clasificar recetas según objetivo: pérdida de peso, aumento de masa muscular y platos equilibrados o saludables.
 - Armar platos y menús completos adaptados a cada meta.
