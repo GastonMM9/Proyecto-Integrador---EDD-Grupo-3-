@@ -10,10 +10,14 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from modelos.ingredientes_y_recetas import Alimento, Receta
 
 
-def cargar_datos(): # Carga archivo .json
-
+def cargar_datos():
+    """Carga los datos desde el archivo JSON"""
+    # Obtener la ruta base (dos niveles arriba de ui/)
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    json_path = os.path.join(base_dir, "datos", "ingredientes_recetas.json")
+    
     try:
-        with open("datos/ingredientes_recetas.json", "r", encoding="utf-8") as f:
+        with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         
         ingredientes = []
@@ -38,10 +42,11 @@ def cargar_datos(): # Carga archivo .json
         return ingredientes, recetas
     
     except FileNotFoundError:
-        print("Error: Archivo 'datos/ingredientes_recetas.json' no encontrado")
+        print(f"❌ Error: Archivo '{json_path}' no encontrado")
+        print("   Verifica que el archivo exista en la carpeta 'datos/'")
         return [], []
     except json.JSONDecodeError:
-        print("Error: El archivo JSON tiene formato inválido")
+        print(f"❌ Error: El archivo '{json_path}' tiene formato inválido")
         return [], []
 
 
