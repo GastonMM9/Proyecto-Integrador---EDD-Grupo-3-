@@ -16,4 +16,5 @@
 ## Estado 
 - TP0: Completado 
 - TP1: Completado - *Pendiente para posibles cambios*
-
+- TP2: Completado - *Cancelado*
+- TP3: *En proceso*
