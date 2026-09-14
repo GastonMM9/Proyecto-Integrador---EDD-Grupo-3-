@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ensalada de pollo",
+    "tiempo": 20,
+    "calorias": 320,
+    "proteina": 28,
+    "dificultad": "Fácil",
+    "ingredientes": ["pollo", "lechuga", "tomate", "aceite"]
+  },
+  {
+    "id": 2,
+    "nombre": "Pasta con verduras",
+    "tiempo": 35,
+    "calorias": 450,
+    "proteina": 15,
+    "dificultad": "Media",
+    "ingredientes": ["fideos", "zanahoria", "cebolla", "salsa"]
+  },
+  {
+    "id": 3,
+    "nombre": "Bife con puré",
+    "tiempo": 40,
+    "calorias": 520,
+    "proteina": 35,
+    "dificultad": "Media",
+    "ingredientes": ["carne", "papa", "leche", "manteca"]
+  },
+  {
+    "id": 4,
+    "nombre": "Omelette de huevo",
+    "tiempo": 10,
+    "calorias": 180,
+    "proteina": 12,
+    "dificultad": "Fácil",
+    "ingredientes": ["huevo", "queso", "leche"]
+  },
+  {
+    "id": 5,
+    "nombre": "Guiso de lentejas",
+    "tiempo": 60,
+    "calorias": 380,
+    "proteina": 22,
+    "dificultad": "Media",
+    "ingredientes": ["lenteja", "cebolla", "zanahoria", "carne"]
+  }
+]
