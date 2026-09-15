@@ -1,0 +1,35 @@
+from modelos.arbol_recetas import ArbolBinarioBusqueda
+from modelos.receta import Receta
+
+class CatalogoRecetas:
+    def __init__(self):
+        self.lista_recetas = []
+        self.arbol_calorias = ArbolBinarioBusqueda("calorias")
+
+    def agregar_receta(self, receta):
+        self.lista_recetas.append(receta)
+        self.arbol_calorias.insertar(receta)
+
+    def listar_todas(self):
+        return self.lista_recetas
+
+    def listar_ordenadas_por_calorias(self):
+        return self.arbol_calorias.inorden()
+
+    def buscar_por_calorias(self, minimo, maximo):
+        return self.arbol_calorias.buscar_por_rango(minimo, maximo)
+
+    def cargar_desde_json(self, ruta):
+        import json
+        with open(ruta, encoding='utf-8') as f:
+            datos = json.load(f)
+        for d in datos:
+            receta = Receta(
+                nombre=d['nombre'],
+                tiempo=d['tiempo_minutos'],
+                calorias=d['calorias'],
+                proteina=d.get('proteina', 0),
+                dificultad=d.get('dificultad', 'Media'),
+                ingredientes=d.get('ingredientes', [])
+            )
+            self.agregar_receta(receta)
