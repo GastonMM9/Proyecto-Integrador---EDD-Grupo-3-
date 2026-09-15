@@ -18,3 +18,7 @@
 - TP1: Completado - *Pendiente para posibles cambios*
 - TP2: Completado - *Cancelado*
 - TP3: Para revisión 
+-TP3: Árbol binario de búsqueda elegimos usar esta estructura porque:
+  *Ordenar automáticamente las recetas por calorías, sin tener que ordenarlas a mano.
+  *Buscar mas rapido en lugar de revisar una por una, el arbol va directo al dato que buscamos.
+  *Filtrar por rango podemos buscar receta entre ciertos valores de calorias de forma eficiente. 
