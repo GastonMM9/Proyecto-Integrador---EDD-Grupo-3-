@@ -1,4 +1,4 @@
-from estructura.arbol_recetas import ArbolBinarioBusqueda
+from estructura.arbol_binario import ArbolBinarioBusqueda
 from modelos.receta import Receta
 
 class CatalogoRecetas:
