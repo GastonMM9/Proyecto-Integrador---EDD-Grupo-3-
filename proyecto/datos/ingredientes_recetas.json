@@ -1,0 +1,89 @@
+{
+  "ingredientes": [
+    {"nombre": "Pechuga de pollo", "categoria": "Carnes", "vencimiento": "2026-09-14", "cantidad": 2},
+    {"nombre": "Arroz blanco", "categoria": "Granos", "vencimiento": "2027-03-20", "cantidad": 500},
+    {"nombre": "Tomate", "categoria": "Verduras", "vencimiento": "2026-09-10", "cantidad": 5},
+    {"nombre": "Cebolla", "categoria": "Verduras", "vencimiento": "2026-09-15", "cantidad": 3},
+    {"nombre": "Ajo", "categoria": "Verduras", "vencimiento": "2026-10-01", "cantidad": 6},
+    {"nombre": "Huevo", "categoria": "Lácteos", "vencimiento": "2026-09-20", "cantidad": 12},
+    {"nombre": "Leche entera", "categoria": "Lácteos", "vencimiento": "2026-09-12", "cantidad": 1},
+    {"nombre": "Harina de trigo", "categoria": "Granos", "vencimiento": "2027-01-15", "cantidad": 1000},
+    {"nombre": "Aceite de oliva", "categoria": "Aceites", "vencimiento": "2027-06-30", "cantidad": 500},
+    {"nombre": "Sal", "categoria": "Condimentos", "vencimiento": "2028-01-01", "cantidad": 250},
+    {"nombre": "Pimienta negra", "categoria": "Condimentos", "vencimiento": "2027-12-15", "cantidad": 100},
+    {"nombre": "Queso rallado", "categoria": "Lácteos", "vencimiento": "2026-10-05", "cantidad": 200},
+    {"nombre": "Espagueti", "categoria": "Pastas", "vencimiento": "2027-05-20", "cantidad": 400}
+  ],
+  "recetas": [
+    {
+      "nombre": "Arroz con pollo",
+      "ingredientes": ["Pechuga de pollo", "Arroz blanco", "Cebolla", "Ajo", "Sal", "Pimienta negra"],
+      "tiempo": 45,
+      "objetivo": "Aumentar masa muscular",
+      "dificultad": "Media"
+    },
+    {
+      "nombre": "Espagueti con salsa de tomate",
+      "ingredientes": ["Tomate", "Cebolla", "Ajo", "Espagueti", "Sal", "Aceite de oliva"],
+      "tiempo": 30,
+      "objetivo": "Mantener peso",
+      "dificultad": "Baja"
+    },
+    {
+      "nombre": "Crepes",
+      "ingredientes": ["Harina de trigo", "Leche entera", "Huevo", "Sal", "Aceite de oliva"],
+      "tiempo": 20,
+      "objetivo": "Ganar peso",
+      "dificultad": "Baja"
+    },
+    {
+      "nombre": "Pollo a la parmesana",
+      "ingredientes": ["Pechuga de pollo", "Tomate", "Cebolla", "Ajo", "Queso rallado", "Aceite de oliva"],
+      "tiempo": 50,
+      "objetivo": "Proteico",
+      "dificultad": "Alta"
+    },
+    {
+      "nombre": "Tortilla de patatas",
+      "ingredientes": ["Huevo", "Leche entera", "Harina de trigo", "Sal", "Aceite de oliva"],
+      "tiempo": 15,
+      "objetivo": "Perder peso",
+      "dificultad": "Media"
+    },
+    {
+      "nombre": "Arroz a la cubana",
+      "ingredientes": ["Arroz blanco", "Cebolla", "Ajo", "Tomate", "Sal", "Aceite de oliva"],
+      "tiempo": 40,
+      "objetivo": "Mantener peso",
+      "dificultad": "Media"
+    },
+    {
+      "nombre": "Espagueti con ajo y aceite",
+      "ingredientes": ["Espagueti", "Aceite de oliva", "Ajo", "Sal", "Pimienta negra"],
+      "tiempo": 25,
+      "objetivo": "Perder peso",
+      "dificultad": "Baja"
+    },
+    {
+      "nombre": "Pastel de queso",
+      "ingredientes": ["Leche entera", "Huevo", "Harina de trigo", "Sal", "Queso rallado"],
+      "tiempo": 35,
+      "objetivo": "Ganar peso",
+      "dificultad": "Media"
+    },
+    {
+      "nombre": "Pollo al ajillo con arroz",
+      "ingredientes": ["Pechuga de pollo", "Cebolla", "Ajo", "Arroz blanco", "Sal", "Pimienta negra", "Aceite de oliva"],
+      "tiempo": 55,
+      "objetivo": "Aumentar masa muscular",
+      "dificultad": "Alta"
+    },
+    {
+      "nombre": "Salsa de tomate casera",
+      "ingredientes": ["Tomate", "Cebolla", "Ajo", "Sal", "Aceite de oliva", "Pimienta negra"],
+      "tiempo": 20,
+      "objetivo": "Proteico",
+      "dificultad": "Baja"
+    }
+  ]
+}
