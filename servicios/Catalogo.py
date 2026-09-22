@@ -1,15 +1,19 @@
 from estructura.arbol_binario import ArbolBinarioBusqueda
 from modelos.receta import Receta
-
+from modelos.arbol_avl_receta import ArbolAVLRecetas
 class CatalogoRecetas:
     def __init__(self):
         self.lista_recetas = []
         self.arbol_calorias = ArbolBinarioBusqueda()
-
+        # Árbol AVL — equilibrado
+        self.arbol_avl_nombre = ArbolAVLRecetas("nombre")
+        self.arbol_avl_calorias = ArbolAVLRecetas("calorias")
     def agregar_receta(self, receta):
         self.lista_recetas.append(receta)
         self.arbol_calorias.insertar(receta.calorias)
-
+        self.arbol_nombre.insertar(receta)
+        self.arbol_avl_nombre.insertar(receta)
+        self.arbol_avl_calorias.insertar(receta)
     def listar_todas(self):
         return self.lista_recetas
 
@@ -60,3 +64,4 @@ def buscar_por_calorias_arbol(self, valor):
                 ingredientes=d.get('ingredientes', [])
             )
             self.agregar_receta(receta)
++
