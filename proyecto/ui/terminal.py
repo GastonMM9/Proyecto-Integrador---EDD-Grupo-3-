@@ -58,6 +58,24 @@ def main():
         elif opcion == "7":
             print("👋 ¡Hasta luego!")
             break
+        elif opcion == "8":
+             print("\n🌳 AVL — Ordenado por nombre:")
+        for receta in catalogo.listar_ordenado_avl("nombre"):
+             print(f"  - {receta.nombre}")
+
+        elif opcion == "9":
+             print("\n🌳 AVL — Ordenado por calorías:")
+    for receta in catalogo.listar_ordenado_avl("calorias"):
+        print(f"  - {receta.nombre}: {receta.calorias} kcal")
+
+elif opcion == "10":
+    print("\n⚖️  COMPARACIÓN: BST vs AVL")
+    comp = catalogo.comparar_alturas()
+    print(f"BST por nombre  — Altura: {comp['bst_nombre']}")
+    print(f"AVL por nombre  — Altura: {comp['avl_nombre']} ✅ Equilibrado")
+    print(f"BST por calorías — Altura: {comp['bst_calorias']}")
+    print(f"AVL por calorías — Altura: {comp['avl_calorias']} ✅ Equilibrado")
+    print("\nDiferencia: AVL mantiene la altura baja = búsquedas más rápidas")
         
         input("\nEnter para continuar...")
 
