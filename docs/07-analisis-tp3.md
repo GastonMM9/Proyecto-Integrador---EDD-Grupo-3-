@@ -1,36 +1,35 @@
 # Análisis del TP3 — Árbol Binario
 Proyecto: GastroRecommender — Grupo 3
 
-## 1. Comparación de formas de buscar
+---
+
+## 1. Cómo buscamos de distinta forma
 
 | Qué hacemos | Lista común | Lista ordenada | Con Árbol |
 |---|---|---|---|
-| Agregar dato | Rápido | Lento | Rápido |
-| Buscar dato | Lento, revisa todo | Más rápido | Rápido |
-| Ordenar todo | Hay que hacerlo a mano | Ya está ordenada | Se ordena solo |
+| Agregar | Rápido | Tengo que acomodar todo | Rápido y se acomoda solo |
+| Buscar | Voy uno por uno, tardo mucho | Más rápido | Muy rápido, empiezo del medio |
+| Ordenar | Lo hago a mano cada vez | Ya está ordenado | Se ordena solo al cargar |
 
-## 2. Tiempos que medimos
+---
 
-| Cantidad | Secuencial | Binaria | Con Árbol |
-|---|---|---|---|
-| 100 | *(lo que dé al ejecutar)* | *(lo que dé)* | *(lo que dé)* |
-| 1.000 | *(lo que dé)* | *(lo que dé)* | *(lo que dé)* |
-| 5.000 | *(lo que dé)* | *(lo que dé)* | *(lo que dé)* |
-| 10.000 | *(lo que dé)* | *(lo que dé)* | *(lo que dé)* |
-| 50.000 | *(lo que dé)* | *(lo que dé)* | *(lo que dé)* |
+## 2. Por qué elegimos el Árbol
 
-> Después ejecutamos el programa y completamos con los números que salgan.
+Al principio pensábamos usar lista, pero no nos sirvió:
 
-## 3. Por qué elegimos el Árbol
+- Con lista normal, buscar tarda mucho porque reviso todo de a uno
+- Con lista ordenada busco más rápido, pero cada vez que agrego algo tengo que reacomodar todo
+- El Árbol Binario es mejor para nosotros porque:
+  - Las recetas se ordenan solas cuando las cargo
+  - Busca rapidísimo, no revisa todo
+  - Puedo mostrar ordenado de distintas formas sin tener que rehacer nada
 
-- Con una lista normal, para buscar una receta hay que ir viendo una por una y tarda mucho si hay muchas.
-- Con la lista ordenada se busca más rápido, pero cada vez que agregamos algo hay que acomodar todo de nuevo.
-- El **Árbol Binario** es lo mejor para nuestro proyecto:
-  - Agregamos recetas y se ordenan solas por calorías
-  - Buscamos rápido sin tener que revisar todo
-    
+---
 
-## 4. Las 3 formas de recorrerlo
-- **De menor a mayor** → muestra las recetas de menos calorías a más
-- **Empieza por la raíz** → va directo al centro y sigue bajando
-- **Termina en la raíz** → recorre todas las ramas y llega al centro al final
+## 3. Las tres formas de recorrerlo
+
+| Forma | Qué hace | Para qué sirve |
+|---|---|---|
+| De menor a mayor | Muestra desde la receta con menos calorías hasta la que tiene más | Ver primero las más livianas |
+| Empezando por la raíz | Muestra la del medio primero y después baja | Para guardar todo tal cual está |
+| Terminando en la raíz | Recorre las ramas primero y al final la del medio | Si borramos todo, no perdemos nada |
