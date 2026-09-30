@@ -5,17 +5,25 @@ from servicios.Catalogo import CatalogoRecetas
 
 def mostrar_menu():
     print("=" * 55)
-    print("   GASTRORECOMMENDER — TP3 ÁRBOL BINARIO")
+    print("   GASTRORECOMMENDER — TP3 + TP4 + TP5")
     print("=" * 55)
+    print("--- TP3: ARBOL BINARIO ---")
     print("1. Cargar recetas desde archivo")
-    print("2. Listar todas (lista normal)")
-    print("3. Listar ordenadas por calorías (INORDEN)")
+    print("2. Listar todas")
+    print("3. Listar ordenadas por calorias (INORDEN)")
     print("4. Ver recorrido PREORDEN")
     print("5. Ver recorrido POSTORDEN")
-    print("6. Buscar por caloría exacta (usa Árbol)")
+    print("6. Buscar por caloria exacta")
+    print("--- TP4: ARBOL AVL ---")
+    print("8. Ordenar por nombre (AVL)")
+    print("9. Ordenar por calorias (AVL)")
+    print("10. Comparar alturas: BST vs AVL")
+    print("--- TP5: ARBOL GENERAL ---")
+    print("11. Ver categorias — recorrido por amplitud")
+    print("12. Ver categorias — recorrido por profundidad")
     print("7. Salir")
     print("=" * 55)
-    return input("Elegí una opción: ")
+    return input("Elegi una opcion: ")
 
 def main():
     catalogo = CatalogoRecetas()
@@ -25,57 +33,67 @@ def main():
         
         if opcion == "1":
             catalogo.cargar_desde_json("datos/ingredientes_y_recetas.json")
-            print("✅ Recetas cargadas")
+            print("Recetas cargadas")
         
         elif opcion == "2":
-            print("\n📋 Lista completa:")
+            print("\nLista completa:")
             for r in catalogo.listar_todas():
                 print(f"  - {r.nombre} | {r.calorias} kcal")
         
         elif opcion == "3":
-            print("\n🌳 Ordenadas de menor a mayor caloría:")
+            print("\nOrdenadas de menor a mayor caloria:")
             cal = catalogo.listar_inorden()
-            print(f"  Calorías: {cal}")
+            print(f"  Calorias: {cal}")
         
         elif opcion == "4":
-            print("\n🌳 Recorrido PREORDEN:")
+            print("\nRecorrido PREORDEN:")
             cal = catalogo.listar_preorden()
-            print(f"  Calorías: {cal}")
+            print(f"  Calorias: {cal}")
         
         elif opcion == "5":
-            print("\n🌳 Recorrido POSTORDEN:")
+            print("\nRecorrido POSTORDEN:")
             cal = catalogo.listar_postorden()
-            print(f"  Calorías: {cal}")
+            print(f"  Calorias: {cal}")
         
         elif opcion == "6":
-            valor = int(input("Caloría a buscar: "))
+            valor = int(input("Caloria a buscar: "))
             res = catalogo.buscar_por_calorias_arbol(valor)
             if res:
-                print(f"✅ Encontrado: {res} kcal")
+                print(f"Encontrado: {res} kcal")
             else:
-                print("❌ No encontrado")
+                print("No encontrado")
+        
+        elif opcion == "8":
+            print("\nAVL — Ordenado por nombre:")
+            for receta in catalogo.arbol_avl_nombre.inorder():
+                print(f"  - {receta.nombre}")
+        
+        elif opcion == "9":
+            print("\nAVL — Ordenado por calorias:")
+            for receta in catalogo.arbol_avl_calorias.inorder():
+                print(f"  - {receta.nombre}: {receta.calorias} kcal")
+        
+        elif opcion == "10":
+            print("\nCOMPARACION: BST vs AVL")
+            print(f"BST por calorias — Altura: {catalogo.arbol_calorias.altura()}")
+            print(f"AVL por calorias — Altura: {catalogo.arbol_avl_calorias.altura()}")
+            print(f"BST por nombre   — Altura: {catalogo.arbol_nombre.altura()}")
+            print(f"AVL por nombre   — Altura: {catalogo.arbol_avl_nombre.altura()}")
+            print("\nDiferencia: AVL mantiene la altura baja = busquedas mas rapidas")
+        
+        elif opcion == "11":
+            print("\nCategorias — Recorrido por amplitud:")
+            for elemento in catalogo.recorrer_por_amplitud():
+                print(f"  - {elemento}")
+        
+        elif opcion == "12":
+            print("\nCategorias — Recorrido por profundidad:")
+            for elemento in catalogo.recorrer_por_profundidad():
+                print(f"  - {elemento}")
         
         elif opcion == "7":
-            print("👋 ¡Hasta luego!")
+            print("Hasta luego")
             break
-        elif opcion == "8":
-             print("\n🌳 AVL — Ordenado por nombre:")
-        for receta in catalogo.listar_ordenado_avl("nombre"):
-             print(f"  - {receta.nombre}")
-
-        elif opcion == "9":
-             print("\n🌳 AVL — Ordenado por calorías:")
-    for receta in catalogo.listar_ordenado_avl("calorias"):
-        print(f"  - {receta.nombre}: {receta.calorias} kcal")
-
-elif opcion == "10":
-    print("\n⚖️  COMPARACIÓN: BST vs AVL")
-    comp = catalogo.comparar_alturas()
-    print(f"BST por nombre  — Altura: {comp['bst_nombre']}")
-    print(f"AVL por nombre  — Altura: {comp['avl_nombre']} ✅ Equilibrado")
-    print(f"BST por calorías — Altura: {comp['bst_calorias']}")
-    print(f"AVL por calorías — Altura: {comp['avl_calorias']} ✅ Equilibrado")
-    print("\nDiferencia: AVL mantiene la altura baja = búsquedas más rápidas")
         
         input("\nEnter para continuar...")
 
