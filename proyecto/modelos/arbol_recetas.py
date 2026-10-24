@@ -13,8 +13,8 @@ class ArbolBinarioBusqueda:
     def _valor(self, receta):
         if self.criterio == "calorias":
             return receta.calorias
-        elif self.criterio == "proteina":
-            return getattr(receta, "proteina", 0)
+        elif self.criterio == "proteinas":
+            return getattr(receta, "proteinas", 0)
         elif self.criterio == "tiempo":
             return getattr(receta, "tiempo", 0)
         return receta.calorias
