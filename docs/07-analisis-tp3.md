@@ -1,5 +1,6 @@
 # Análisis del TP3 — Árbol Binario
-Proyecto: GastroRecommender — Grupo 3
+
+**Proyecto:** GastroRecommender — Grupo 3
 
 ---
 
@@ -17,12 +18,13 @@ Proyecto: GastroRecommender — Grupo 3
 
 Al principio pensábamos usar lista, pero no nos sirvió:
 
-- Con lista normal, buscar tarda mucho porque reviso todo de a uno
-- Con lista ordenada busco más rápido, pero cada vez que agrego algo tengo que reacomodar todo
-- El Árbol Binario es mejor para nosotros porque:
-  - Las recetas se ordenan solas cuando las cargo
-  - Busca rapidísimo, no revisa todo
-  - Puedo mostrar ordenado de distintas formas sin tener que rehacer nada
+- Con lista normal, buscar tarda mucho porque reviso todo de a uno.
+- Con lista ordenada busco más rápido, pero cada vez que agrego algo tengo que reacomodar todo.
+
+El **Árbol Binario** es mejor para nosotros porque:
+- Las recetas se ordenan solas cuando las cargo.
+- Busca rapidísimo, no revisa todo.
+- Puedo mostrar ordenado de distintas formas sin tener que rehacer nada.
 
 ---
 
