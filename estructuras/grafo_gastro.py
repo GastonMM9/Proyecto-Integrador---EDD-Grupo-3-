@@ -1,5 +1,5 @@
 # TP7 — GRAFOS: GastroRecommender
-# Grupo 3 
+# Grupo 3 — Integración con catálogo real
 
 from collections import deque
 import heapq
@@ -7,87 +7,86 @@ import heapq
 
 class GrafoRecetas:
     def __init__(self):
-        # Lista de adyacencia
         self.adyacencia = {}
 
-    def conectar_por_calorias(self, nombre1, calorias1, nombre2, calorias2):
-        # Similitud: cuanto más parecidas en calorías, mayor conexión
-        diferencia = abs(calorias1 - calorias2)
-        similitud = max(0, 10 - diferencia // 10)
+    def conectar_desde_catalogo(self, lista_recetas):
+        """Construye el grafo con TODAS las recetas cargadas"""
+        self.adyacencia = {}
 
-        # Grafo NO DIRIGIDO
-        if nombre1 not in self.adyacencia:
-            self.adyacencia[nombre1] = []
-        self.adyacencia[nombre1].append((nombre2, similitud))
+        def calcular_similitud(r1, r2):
+            # Por calorías → base de nuestro proyecto
+            diferencia = abs(r1.calorias - r2.calorias)
+            sim_cal = max(0, 5 - diferencia // 50)
 
-        if nombre2 not in self.adyacencia:
-            self.adyacencia[nombre2] = []
-        self.adyacencia[nombre2].append((nombre1, similitud))
+            # Por categoría
+            sim_cat = 3 if getattr(r1, 'categoria', '') == getattr(r2, 'categoria', '') else 0
 
-    # --- BFS: recetas con calorías parecidas ---
-    def recetas_mas_parecidas(self, inicio):
-        """Muestra primero las que más se parecen → sirve para tu objetivo"""
+            # Por ingredientes
+            ing1 = set(getattr(r1, 'ingredientes', []))
+            ing2 = set(getattr(r2, 'ingredientes', []))
+            sim_ing = min(len(ing1 & ing2), 2)
+
+            return sim_cal + sim_cat + sim_ing
+
+        # Conectar recetas relacionadas
+        for i in range(len(lista_recetas)):
+            for j in range(i + 1, len(lista_recetas)):
+                r1 = lista_recetas[i]
+                r2 = lista_recetas[j]
+                sim = calcular_similitud(r1, r2)
+                if sim >= 4:  # Solo conectar si son parecidas
+                    self._agregar_arista(r1.nombre, r2.nombre, sim)
+
+    def _agregar_arista(self, a, b, valor):
+        if a not in self.adyacencia:
+            self.adyacencia[a] = []
+        self.adyacencia[a].append((b, valor))
+        if b not in self.adyacencia:
+            self.adyacencia[b] = []
+        self.adyacencia[b].append((a, valor))
+
+    # --- BFS ---
+    def bfs(self, inicio):
+        if inicio not in self.adyacencia:
+            return [f"'{inicio}' no encontrada"]
         visitados = set([inicio])
         cola = deque([inicio])
-        recorrido = []
+        res = []
         while cola:
-            actual = cola.popleft()
-            recorrido.append(actual)
-            for vecino, _ in self.adyacencia[actual]:
-                if vecino not in visitados:
-                    visitados.add(vecino)
-                    cola.append(vecino)
-        return recorrido
+            act = cola.popleft()
+            res.append(act)
+            for vec, _ in self.adyacencia[act]:
+                if vec not in visitados:
+                    visitados.add(vec)
+                    cola.append(vec)
+        return res
 
-    # --- DFS: ver todo el grupo ---
-    def explorar_relacionadas(self, inicio, visitados=None, recorrido=None):
-        if visitados is None:
-            visitados = set()
-        if recorrido is None:
-            recorrido = []
-        visitados.add(inicio)
-        recorrido.append(inicio)
-        for vecino, _ in self.adyacencia[inicio]:
-            if vecino not in visitados:
-                self.explorar_relacionadas(vecino, visitados, recorrido)
-        return recorrido
+    # --- DFS ---
+    def dfs(self, inicio, vis=None, res=None):
+        if vis is None: vis = set()
+        if res is None: res = []
+        if inicio not in self.adyacencia or inicio in vis:
+            return res
+        vis.add(inicio)
+        res.append(inicio)
+        for vec, _ in self.adyacencia[inicio]:
+            if vec not in vis:
+                self.dfs(vec, vis, res)
+        return res
 
-    # --- Dijkstra: mejor camino ---
-    def camino_por_objetivo(self, desde, hasta):
-        """Costo = 10 - similitud → menor = mejor para tu meta"""
+    # --- Camino mínimo — Dijkstra ---
+    def camino_minimo(self, desde, hasta):
+        # Costo = 10 - similitud → menor = mejor
         cola = [(0, desde, [desde])]
-        menor_costo = {}
+        mejores = {}
         while cola:
             costo_act, nodo, camino = heapq.heappop(cola)
             if nodo == hasta:
-                return camino, costo_act
-            if nodo in menor_costo and menor_costo[nodo] <= costo_act:
+                return {"camino": camino, "costo": costo_act}
+            if nodo in mejores and mejores[nodo] <= costo_act:
                 continue
-            menor_costo[nodo] = costo_act
-            for vecino, sim in self.adyacencia[nodo]:
-                costo = 10 - sim
-                heapq.heappush(cola, (costo_act + costo, vecino, camino + [vecino]))
-        return None, None
-
-
-# --- PRUEBA con recetas ligadas a tu proyecto ---
-if __name__ == "__main__":
-    grafo = GrafoRecetas()
-
-    # 2 recetas conectadas por calorías → ligadas a tu objetivo
-    grafo.conectar_por_calorias("Milanesa", 250, "Milanesa Napolitana", 280)
-
-    print("✅ Grafo cargado")
-    print("Recetas conectadas por calorías:")
-    for nombre in grafo.adyacencia:
-        print(f"  - {nombre}")
-
-    print("\n🔍 BFS — Más parecidas en calorías:")
-    print(" → ".join(grafo.recetas_mas_parecidas("Milanesa")))
-
-    print("\n🌳 DFS — Todas relacionadas:")
-    print(" → ".join(grafo.explorar_relacionadas("Milanesa")))
-
-    camino, costo = grafo.camino_por_objetivo("Milanesa", "Milanesa Napolitana")
-    print(f"\n⭐ Mejor camino: {' → '.join(camino)}")
-    print(f"Costo: {costo} (menor = mejor para tu objetivo)")
+            mejores[nodo] = costo_act
+            for vec, sim in self.adyacencia.get(nodo, []):
+                nuevo_costo = costo_act + (10 - sim)
+                heapq.heappush(cola, (nuevo_costo, vec, camino + [vec]))
+        return None
