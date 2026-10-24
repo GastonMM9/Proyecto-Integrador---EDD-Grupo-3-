@@ -1,39 +1,19 @@
-# TP7 — Grafos
+# TP7 — Grafos: Decisión de Diseño
 ## GastroRecommender — Grupo 3
 
-### Conexión con el proyecto
-En los trabajos anteriores trabajamos con:
-- **TP3:** buscar y ordenar recetas por calorías
-- **TP4:** comparar estructuras para buscar rápido
-- **TP5:** organizar recetas por categorías
-- **TP6:** recomendar según objetivo (perder peso / ganar masa)
+### Decisión
+Se evaluó incorporar un modelo de grafos, pero se determinó que **no es necesario** para cumplir los objetivos del sistema.
 
-Ahora con grafos conectamos recetas que tienen calorías parecidas, para recomendarte otras que van con tu misma meta.
+### Motivos
+1. Las relaciones entre recetas ya se manejan con las estructuras anteriores:
+   - Búsqueda por calorías → Árbol Binario (TP3)
+   - Ordenamiento equilibrado → Árbol AVL (TP4)
+   - Categorías → Árbol General (TP5)
+   - Recomendaciones por objetivo → Cola de Prioridad (TP6)
 
-### 1. Definiciones
-- **Vértices:** las recetas
-  - "Milanesa" → 250 kcal
-  - "Milanesa Napolitana" → 280 kcal
-- **Aristas:** se conectan porque tienen calorías cercanas
-  - Similitud: 7/10
-- **Tipo de grafo:** No dirigido + pesado
-  - No dirigido: la relación va en los dos sentidos
-  - Pesado: el valor cambia según qué tan parecidas sean
-- **Representación:** Lista de adyacencia
-  - Justificación: hay pocas conexiones, ocupa menos memoria que la matriz
+2. Un grafo no aportaría funcionalidad nueva, solo duplicaría información que ya existe por categoría, calorías e ingredientes.
 
-### 2. Recorridos
-- **BFS:** muestra primero las recetas más parecidas en calorías
-  - *Para qué sirve:* "Me gusta esta receta → mostrame otras parecidas"
-  - Complejidad: O(V + E)
+3. Se prefiere mantener el sistema simple, funcional y sin complejidad innecesaria.
 
-- **DFS:** muestra todas las recetas relacionadas
-  - *Para qué sirve:* "Quiero ver todo lo que se parece a esta"
-  - Complejidad: O(V + E)
-
-### 3. Mejor camino — Dijkstra
-- **Costo:** 10 − similitud → cuanto menor, más se parecen en calorías
-- **Por qué Dijkstra:** todos los valores son positivos
-- **Complejidad:** O(E log V)
-
-### 4. Salida del programa
+### Conclusión
+El proyecto cumple todos los requisitos con las estructuras ya implementadas. Por eso se decide no incorporar grafos.
