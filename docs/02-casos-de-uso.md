@@ -6,7 +6,10 @@
 - **Generar Recomendaciones**: platos adaptados a cada objetivo — pérdida de peso, aumento de masa muscular y alimentación equilibrada.
 - **Buscar y Filtrar**: por dificultad, tipo de plato, tiempo de preparación y meta de alimentación.
 
+---
+
 ## Ejemplo 1 — Recomendación por ingredientes disponibles
+
 ===== GASTRORECOMMENDER =====
 ¿Qué ingredientes tenés disponibles?
 > Pollo, arroz, tomate, huevo
@@ -17,7 +20,10 @@ Te recomendamos:
   1. POLLO CON ARROZ Y HUEVO
   2. POLLO CON ARROZ Y TOMATE
 
+---
+
 ## Ejemplo 2 — Recomendación por objetivo nutricional
+
 ===== GASTRORECOMMENDER =====
 ¿Qué objetivo nutricional tenés?
 > Proteico
@@ -27,7 +33,10 @@ Te recomendamos:
 🥗 Ingredientes faltantes: Ninguno
 💪 Aporte: Alto contenido de proteínas
 
+---
+
 ## Ejemplo 3 — Menú y detalle de receta
+
 ========================================
        GASTRO RECOMMENDER — TERMINAL
 ========================================
