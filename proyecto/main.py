@@ -1,6 +1,5 @@
 import sys
 sys.path.append("..")
-
 from servicios.Catalogo import Catalogo
 
 
@@ -20,10 +19,16 @@ def main():
         opcion = input("\nElegí una opción: ")
 
         if opcion == "0":
-            print(" ¡Hasta luego!")
+            print("¡Hasta luego!")
             break
+        elif opcion == "1":
+            print("Recetas cargadas correctamente ✅")
+        elif opcion == "2":
+            print("Búsqueda por calorías — En desarrollo 🚧")
+        elif opcion == "3":
+            print("Recomendaciones por prioridad — En desarrollo 🚧")
         else:
-            print(" Opción en desarrollo")
+            print("Opción inválida. Intentá nuevamente.")
 
 
 if __name__ == "__main__":
